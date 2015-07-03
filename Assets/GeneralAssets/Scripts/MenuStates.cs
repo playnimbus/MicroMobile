@@ -12,7 +12,7 @@ public class MenuStates : MonoBehaviour {
 
     Camera MainCamera;
 
-    GameObject currentMiniGame;
+    public GameObject currentMiniGame;
 
 	// Use this for initialization
 	void Start () {
@@ -34,18 +34,18 @@ public class MenuStates : MonoBehaviour {
     {
         switch (CurrentScreenState)
         {
-            case ScreenStates.MainMenu: print("Switch from MainMenu"); ExitMainMenu(); break;
-            case ScreenStates.HomeScreen: print("Switch from HomeScreen"); ExitHomeScreen(); break;
-            case ScreenStates.GameScreen: print("Switch from GameScreen"); ExitGameScreen(); break;
+            case ScreenStates.MainMenu: ExitMainMenu(); break;
+            case ScreenStates.HomeScreen: ExitHomeScreen(); break;
+            case ScreenStates.GameScreen: ExitGameScreen(); break;
         }
 
         CurrentScreenState = newState;
 
         switch (CurrentScreenState)
         {
-            case ScreenStates.MainMenu: print("to MainMenu"); EnterMainMenu(); break;
-            case ScreenStates.HomeScreen: print("to HomeSreen"); EnterHomeScreen(); break;
-            case ScreenStates.GameScreen: print("to GameScreen"); EnterGameScreen(); break;
+            case ScreenStates.MainMenu: EnterMainMenu(); break;
+            case ScreenStates.HomeScreen: EnterHomeScreen(); break;
+            case ScreenStates.GameScreen: EnterGameScreen(); break;
         }
     }
 
@@ -66,7 +66,7 @@ public class MenuStates : MonoBehaviour {
 
     void EnterHomeScreen()
     {
-        homeScreenTimer = 3;
+        homeScreenTimer = 1.5f;
         currentMiniGame = (GameObject)Instantiate (minigames[Random.Range(0, minigames.Length)], transform.position, transform.rotation);
         currentMiniGame.transform.position = miniGameLocation.transform.position;
     }
@@ -88,7 +88,7 @@ public class MenuStates : MonoBehaviour {
     //----------GAME SCREEN//----------
     void EnterGameScreen() 
     {
-       
+        ScoreKeeper.GameStarted = true;
     }
     void UpdateGameScreen() { }
     void ExitGameScreen() 

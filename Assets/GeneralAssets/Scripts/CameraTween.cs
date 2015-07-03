@@ -23,7 +23,7 @@ public class CameraTween : MonoBehaviour {
          Hashtable hashtable = new Hashtable();
          hashtable.Add("position", HomeScreenPosition.transform.position);
          hashtable.Add("speed", 7);
-         hashtable.Add("easetype", iTween.EaseType.easeOutExpo);
+         hashtable.Add("easetype", iTween.EaseType.easeOutCubic);
          hashtable.Add("oncomplete", "switchMenuToHomeScreen");
 
          iTween.MoveTo(gameObject, hashtable);
@@ -38,8 +38,8 @@ public class CameraTween : MonoBehaviour {
     {
         Hashtable hashtable = new Hashtable();
         hashtable.Add("position", GameScreenPosition.transform.position);
-        hashtable.Add("speed", 7);
-        hashtable.Add("easetype", iTween.EaseType.easeOutExpo);
+        hashtable.Add("speed", 5.5f);
+        hashtable.Add("easetype", iTween.EaseType.easeInExpo);
         hashtable.Add("oncomplete", "switchMenuToGameScreen");
 
         iTween.MoveTo(gameObject, hashtable);
