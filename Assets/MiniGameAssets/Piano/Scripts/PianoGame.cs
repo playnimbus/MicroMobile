@@ -65,10 +65,12 @@ public class PianoGame : MonoBehaviour {
 
     void GameStartedUpdate()
     {
-        PianoUIText.SetActive(true);
+        
         timer += Time.deltaTime;
+        PianoUIText.SetActive(true);
         if (rowsLeft == 0)
         {
+            PianoUIText.SetActive(false);
             ScoreKeeper.GameWon();
         }
         if (timer >= winTime && rowsLeft != 0)

@@ -41,12 +41,10 @@ public class PianoTile : MonoBehaviour {
     {
         if (ScoreKeeper.GameStarted && isBlackTile && isCurrentRow)
         {
-            Debug.Log("Win");
             gameLogic.GetComponent<PianoGame>().SetNewRow();
         }
         if (ScoreKeeper.GameStarted && !isBlackTile && isCurrentRow)
         {
-            Debug.Log("fail");
             gameLogic.GetComponent<PianoGame>().GameOver();
         }
     }
