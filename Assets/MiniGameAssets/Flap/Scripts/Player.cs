@@ -21,6 +21,7 @@ public class Player : MonoBehaviour
 
     void UpdateStartedGame()
     {
+        gameObject.GetComponent<Rigidbody2D>().isKinematic = false;
         if (Input.GetMouseButtonDown(0))
         {
             Debug.Log("Mouse Down");
