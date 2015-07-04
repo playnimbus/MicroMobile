@@ -33,7 +33,7 @@ public class Player : MonoBehaviour
     {
         if (col.gameObject.tag == "Fail")
         {
-            ScoreKeeper.GameFailed();
+            ScoreKeeper.GameFailed(); //TODO: Make this only happen once. 
         }
         if (col.gameObject.tag == "Win")
         {
