@@ -3,10 +3,6 @@ using System.Collections;
 
 public class MoveObjects : MonoBehaviour {
     public float speed;
-	// Use this for initialization
-	void Start () {
-	
-	}
 
     void Update()
     {

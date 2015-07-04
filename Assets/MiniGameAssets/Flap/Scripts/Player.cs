@@ -3,11 +3,11 @@ using System.Collections;
 
 public class Player : MonoBehaviour
 {
-
+    bool gameOver;
     // Use this for initialization
     void Start()
     {
-
+        gameOver = false;
     }
 
     // Update is called once per frame
@@ -31,12 +31,14 @@ public class Player : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.tag == "Fail")
+        if (col.gameObject.tag == "Fail" && !gameOver)
         {
-            ScoreKeeper.GameFailed(); //TODO: Make this only happen once. 
+            gameOver = true;
+            ScoreKeeper.GameFailed(); 
         }
-        if (col.gameObject.tag == "Win")
+        if (col.gameObject.tag == "Win" && !gameOver)
         {
+            gameOver = true;
             ScoreKeeper.GameWon();
         }
     }

@@ -643,8 +643,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minigames:
   - {fileID: 182772, guid: eec6104eb6f0a234ba673ee86f6f4ff8, type: 2}
-  - {fileID: 196222, guid: 2cd3f52d1bc42194e8fdb0a132165676, type: 2}
-  - {fileID: 184794, guid: c15c58e6937119e4282e0f37bb112150, type: 2}
   miniGameLocation: {fileID: 137810615}
   CurrentScreenState: 1
   currentMiniGame: {fileID: 0}
