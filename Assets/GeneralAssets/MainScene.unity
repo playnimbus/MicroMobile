@@ -163,11 +163,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 137810615}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.57999992, y: .589999974, z: 6.42000008}
+  m_LocalPosition: {x: 5.63999987, y: .100000001, z: 5.36000013}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1483729545}
-  m_RootOrder: 3
+  m_RootOrder: 0
 --- !u!1 &255986966
 GameObject:
   m_ObjectHideFlags: 0
@@ -353,7 +353,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1483729545}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!1 &1183618634
 GameObject:
   m_ObjectHideFlags: 0
@@ -582,7 +582,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1483729545}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!1 &1483729544
 GameObject:
   m_ObjectHideFlags: 0
@@ -608,10 +608,10 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 137810616}
   - {fileID: 941330817}
   - {fileID: 1714775830}
   - {fileID: 1433092441}
-  - {fileID: 137810616}
   m_Father: {fileID: 0}
   m_RootOrder: 4
 --- !u!1 &1703718298
@@ -642,6 +642,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minigames:
+  - {fileID: 182772, guid: eec6104eb6f0a234ba673ee86f6f4ff8, type: 2}
   - {fileID: 196222, guid: 2cd3f52d1bc42194e8fdb0a132165676, type: 2}
   - {fileID: 184794, guid: c15c58e6937119e4282e0f37bb112150, type: 2}
   miniGameLocation: {fileID: 137810615}
@@ -685,7 +686,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1483729545}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!1 &1725298228
 GameObject:
   m_ObjectHideFlags: 0
