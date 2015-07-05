@@ -12,7 +12,7 @@ public static class ScoreKeeper : object {
 
     static MenuStates menuState;
 
-    static TextMesh HealthLabel;
+    static HealthBarBattery healthBar;
     static TextMesh ScoreLabel;
 
     static public void initScoreKeeper()
@@ -24,10 +24,10 @@ public static class ScoreKeeper : object {
         currentDifficultyLevel = 1;
         GameStarted = false;
 
-        HealthLabel = GameObject.Find("HealthLabel").GetComponent<TextMesh>();
+        healthBar = GameObject.Find("HealthBarBattery").GetComponent<HealthBarBattery>();
         ScoreLabel = GameObject.Find("ScoreLabel").GetComponent<TextMesh>();
         ScoreLabel.text = "Score:" + score.ToString();
-        HealthLabel.text = "Health:" + currentHealth.ToString();
+        healthBar.setIcon(currentHealth);
     }
     static public void GameWon()
     {
@@ -40,7 +40,7 @@ public static class ScoreKeeper : object {
     {
         GameStarted = false;
         currentHealth--;
-        HealthLabel.text = "Health:" + currentHealth.ToString();
+        healthBar.setIcon(currentHealth);
         Camera.main.GetComponent<CameraTween>().TweenToHomeScreen();
     }
 }

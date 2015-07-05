@@ -58,6 +58,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 460686}
+  - 114: {fileID: 11459684}
   m_Layer: 0
   m_Name: MiniGame1
   m_TagString: Untagged
@@ -108,7 +109,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 196222}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.63000011, y: .00999999978, z: 5.36000013}
+  m_LocalPosition: {x: 18.083416, y: 2.5922873, z: 5.36000013}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 447214}
@@ -128,6 +129,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.3599999, y: 1.00999999, z: .200000003}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &11459684
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 196222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0453dbd35e8d4984080bb2529cce18c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AppIcon: {fileID: 21300000, guid: 75274f101d4534f40ad0e0cfbbf4d420, type: 3}
+  AppName: Mini Game One
+  AppNotificationFlavorText: Button's energy has been restored
 --- !u!114 &11481280
 MonoBehaviour:
   m_ObjectHideFlags: 1

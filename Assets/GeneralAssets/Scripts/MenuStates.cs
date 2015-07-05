@@ -14,10 +14,18 @@ public class MenuStates : MonoBehaviour {
 
     public GameObject currentMiniGame;
 
+    GameObject notificationBar;
+    notificationController notification;
+    HomeScreenController homeScreenController;
+
 	// Use this for initialization
 	void Start () {
         MainCamera = Camera.main;
         CurrentScreenState = ScreenStates.MainMenu;
+        
+        notificationBar = GameObject.Find("notificationBar");
+        notification = GameObject.Find("Notification").GetComponent<notificationController>();
+        homeScreenController = GameObject.Find("HomeScreenBackground").GetComponent<HomeScreenController>();
 	}
 	
 	// Update is called once per frame
@@ -62,26 +70,48 @@ public class MenuStates : MonoBehaviour {
 
     //----------HOME SCREEN//----------
 
-    float homeScreenTimer;
-
+    bool homescreenAnimationsComplete;
+    bool firstGame = true;
     void EnterHomeScreen()
     {
-        homeScreenTimer = 1.5f;
+
+        if (firstGame == false)
+        {
+            homeScreenController.LowerNextIcon();
+        }
+
+        homescreenAnimationsComplete = false;
         currentMiniGame = (GameObject)Instantiate (minigames[Random.Range(0, minigames.Length)], transform.position, transform.rotation);
         currentMiniGame.transform.position = miniGameLocation.transform.position;
+
+        homeScreenController.SetCurrentAppIcon(currentMiniGame.GetComponent<AppInfoContainer>().AppIcon);
+        notification.setNotificationInfo(currentMiniGame.GetComponent<AppInfoContainer>());
+
+        if(firstGame == true)
+        {
+            notificationBar.GetComponent<NotificationbarFade>().startFade();
+            notification.TweenNotificationDown();
+            firstGame = false;
+        }
     }
     void UpdateHomeScreen()
     {
-        homeScreenTimer -= Time.deltaTime;
-
-        if (homeScreenTimer <= 0)
+        if (homescreenAnimationsComplete)
         {
             MainCamera.GetComponent<CameraTween>().TweenToGameScreen();
-            homeScreenTimer = 999;
+            homescreenAnimationsComplete = false;
         }
     }
     void ExitHomeScreen()
     {
+        notificationBar.GetComponent<NotificationbarFade>().resetFade();
+        notification.ResetNotificationPosition();
+        homescreenAnimationsComplete = false;
+    }
+
+    public void setHomeScreenAnimation(bool isComplete)
+    {
+        homescreenAnimationsComplete = isComplete;
     }
 
 
