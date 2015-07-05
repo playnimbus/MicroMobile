@@ -70,22 +70,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!1 &155980
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 445536}
-  - 212: {fileID: 21229618}
-  m_Layer: 0
-  m_Name: minigameBackground 1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
 --- !u!1 &182772
 GameObject:
   m_ObjectHideFlags: 0
@@ -94,6 +78,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 402290}
+  - 114: {fileID: 11405290}
   m_Layer: 0
   m_Name: Flappy
   m_TagString: Untagged
@@ -173,10 +158,9 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 182772}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 7.38999987, y: .25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 445536}
   - {fileID: 449820}
   - {fileID: 494752}
   - {fileID: 472124}
@@ -194,18 +178,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 472124}
   m_RootOrder: 3
---- !u!4 &445536
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 155980}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 17.6488094, y: 31.1802998, z: 1}
-  m_Children: []
-  m_Father: {fileID: 402290}
-  m_RootOrder: 0
 --- !u!4 &449820
 Transform:
   m_ObjectHideFlags: 1
@@ -217,7 +189,7 @@ Transform:
   m_LocalScale: {x: 1.90415287, y: 2.13343406, z: 1}
   m_Children: []
   m_Father: {fileID: 402290}
-  m_RootOrder: 1
+  m_RootOrder: 0
 --- !u!4 &466520
 Transform:
   m_ObjectHideFlags: 1
@@ -270,7 +242,7 @@ Transform:
   - {fileID: 420070}
   - {fileID: 486002}
   m_Father: {fileID: 402290}
-  m_RootOrder: 3
+  m_RootOrder: 2
 --- !u!4 &486002
 Transform:
   m_ObjectHideFlags: 1
@@ -294,7 +266,7 @@ Transform:
   m_LocalScale: {x: 1.25, y: 1.25, z: 1}
   m_Children: []
   m_Father: {fileID: 402290}
-  m_RootOrder: 2
+  m_RootOrder: 1
 --- !u!50 &5027024
 Rigidbody2D:
   m_ObjectHideFlags: 1
@@ -481,6 +453,20 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &11405290
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 182772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0453dbd35e8d4984080bb2529cce18c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AppIcon: {fileID: 21300000, guid: caa638285e4d5e94399f08c416e9e33f, type: 3}
+  AppName: Tappy Plane
+  AppNotificationFlavorText: Plane is ready for another flight
 --- !u!114 &11425498
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -539,35 +525,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
+  m_SortingLayerID: -1361295011
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: caa638285e4d5e94399f08c416e9e33f, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
---- !u!212 &21229618
-SpriteRenderer:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 155980}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 1
-  m_ReflectionProbeUsage: 1
-  m_ProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 75274f101d4534f40ad0e0cfbbf4d420, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!212 &21251132
 SpriteRenderer:
@@ -591,7 +551,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
+  m_SortingLayerID: -1361295011
   m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 0e824d796e8df1c4990273c4ff0ad918, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -617,7 +577,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
+  m_SortingLayerID: -1361295011
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: c371a00141c6bad4381cdde89c998076, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -643,7 +603,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
+  m_SortingLayerID: -1361295011
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 3c7e76c2a1cc34748baf16080985eecd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

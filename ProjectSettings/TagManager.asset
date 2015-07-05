@@ -41,6 +41,12 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: MiniGame
+    uniqueID: 2933672285
+    locked: 0
+  - name: HomeScreen
+    uniqueID: 4229338289
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
