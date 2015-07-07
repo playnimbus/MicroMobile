@@ -238,7 +238,12 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: AppIcon
+      value: 
+      objectReference: {fileID: 21300000, guid: 7c4227665e2ebd542bfc230e3988f4b0,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 184794}
