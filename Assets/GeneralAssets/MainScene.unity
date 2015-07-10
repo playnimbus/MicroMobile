@@ -2712,9 +2712,10 @@ MonoBehaviour:
   minigames:
   - {fileID: 179880, guid: 33e043cb4af7ced42917d30a34b4dffa, type: 2}
   - {fileID: 182772, guid: eec6104eb6f0a234ba673ee86f6f4ff8, type: 2}
+  - {fileID: 120796, guid: a7efda042dc7e57488d56aa831fa7bf9, type: 2}
   - {fileID: 150224, guid: 6199e8427b82ebd4e820a91398f8c20d, type: 2}
   miniGameLocation: {fileID: 137810615}
-  CurrentScreenState: 1
+  CurrentScreenState: 0
   currentMiniGame: {fileID: 0}
 --- !u!4 &1703718300
 Transform:

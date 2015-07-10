@@ -62,15 +62,15 @@ public class TurretControl : MonoBehaviour {
                 currentSwipe.Normalize();
 
                 //swipes left
-                if (currentSwipe.x < 0 && rotRange <= 1)
+                if (currentSwipe.x < 0 && rotRange <= 3)
                 {
-                    pivot.transform.Rotate(Vector3.forward, -20);
+                    pivot.transform.Rotate(Vector3.forward, -15);
                     rotRange++;
                 }
                 //swipes right
-                if (currentSwipe.x > 0 && rotRange >= -1)
+                if (currentSwipe.x > 0 && rotRange >= -3)
                 {
-                    pivot.transform.Rotate(Vector3.forward, 20);
+                    pivot.transform.Rotate(Vector3.forward, 15);
                     rotRange--;
                 }
             }
@@ -106,7 +106,6 @@ public class TurretControl : MonoBehaviour {
             projectile = Instantiate(ball, turretCannon.transform.position, turretCannon.transform.rotation) as GameObject;
             projectile.transform.rotation = pivot.transform.rotation;
             projectile.GetComponent<Rigidbody2D>().velocity = -projectile.transform.up * speed;
-            Destroy(projectile, 5);
         }
         
     }
