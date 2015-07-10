@@ -20,6 +20,7 @@ public class MosquePlayer : MonoBehaviour {
         {
             WinTimer();
             MobileControl();
+            KeyBoardControl();
         }
 	}
     void MobileControl()
@@ -52,6 +53,23 @@ public class MosquePlayer : MonoBehaviour {
                     movRange++;
                 }
             }
+        }
+    }
+
+    void KeyBoardControl()
+    {
+        //strafe left
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            transform.position += new Vector3(-1, 0, 0);
+            movRange--;
+        }
+
+        //strafe right
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            transform.position += new Vector3(1, 0, 0);
+            movRange++;
         }
     }
 
