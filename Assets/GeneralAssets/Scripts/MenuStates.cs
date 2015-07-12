@@ -1,13 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class MenuStates : MonoBehaviour {
+public class MenuStates : MonoBehaviour
+{
 
     public GameObject[] minigames;
 
     public GameObject miniGameLocation;
 
-    public enum ScreenStates {MainMenu, HomeScreen, GameScreen };
+    public enum ScreenStates { MainMenu, HomeScreen, GameScreen };
     public ScreenStates CurrentScreenState = ScreenStates.MainMenu;
 
     Camera MainCamera;
@@ -18,25 +19,27 @@ public class MenuStates : MonoBehaviour {
     notificationController notification;
     HomeScreenController homeScreenController;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
         MainCamera = Camera.main;
         CurrentScreenState = ScreenStates.MainMenu;
-        
+
         notificationBar = GameObject.Find("notificationBar");
         notification = GameObject.Find("Notification").GetComponent<notificationController>();
         homeScreenController = GameObject.Find("HomeScreenBackground").GetComponent<HomeScreenController>();
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
         switch (CurrentScreenState)
         {
             case ScreenStates.MainMenu: UpdateMainMenu(); break;
             case ScreenStates.HomeScreen: UpdateHomeScreen(); break;
             case ScreenStates.GameScreen: UpdateGameScreen(); break;
         }
-	}
+    }
 
     public void SwitchState(ScreenStates newState)
     {
@@ -62,7 +65,7 @@ public class MenuStates : MonoBehaviour {
 
     void EnterMainMenu() { }
     void UpdateMainMenu() { }
-    void ExitMainMenu() 
+    void ExitMainMenu()
     {
         ScoreKeeper.initScoreKeeper();      //initialize values for new game session
     }
@@ -74,20 +77,20 @@ public class MenuStates : MonoBehaviour {
     bool firstGame = true;
     void EnterHomeScreen()
     {
-
+        notification.ResetNotificationPosition();
         if (firstGame == false)
         {
             homeScreenController.LowerNextIcon();
         }
 
         homescreenAnimationsComplete = false;
-        currentMiniGame = (GameObject)Instantiate (minigames[Random.Range(0, minigames.Length)], transform.position, transform.rotation);
+        currentMiniGame = (GameObject)Instantiate(minigames[Random.Range(0, minigames.Length)], transform.position, transform.rotation);
         currentMiniGame.transform.position = miniGameLocation.transform.position;
 
         homeScreenController.SetCurrentAppIcon(currentMiniGame.GetComponent<AppInfoContainer>().AppIcon);
         notification.setNotificationInfo(currentMiniGame.GetComponent<AppInfoContainer>());
 
-        if(firstGame == true)
+        if (firstGame == true)
         {
             notificationBar.GetComponent<NotificationbarFade>().startFade();
             notification.TweenNotificationDown();
@@ -105,7 +108,6 @@ public class MenuStates : MonoBehaviour {
     void ExitHomeScreen()
     {
         notificationBar.GetComponent<NotificationbarFade>().resetFade();
-        notification.ResetNotificationPosition();
         homescreenAnimationsComplete = false;
     }
 
@@ -116,12 +118,13 @@ public class MenuStates : MonoBehaviour {
 
 
     //----------GAME SCREEN//----------
-    void EnterGameScreen() 
+    void EnterGameScreen()
     {
         ScoreKeeper.GameStarted = true;
+        notification.startNotificationSlideUp();
     }
     void UpdateGameScreen() { }
-    void ExitGameScreen() 
+    void ExitGameScreen()
     {
         Destroy(currentMiniGame);
     }
