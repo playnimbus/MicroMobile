@@ -11,7 +11,7 @@ public class PianoGame : MonoBehaviour {
     public float winTime;
     public int winRows;
     int rowsLeft;
-    public GameObject PianoUIText;
+    
 	// Use this for initialization
 	void Start () {
         RandomTile(row1);
@@ -26,7 +26,7 @@ public class PianoGame : MonoBehaviour {
         rows[currentRow].BroadcastMessage("IsCurrentRow", SendMessageOptions.DontRequireReceiver);
         rowsLeft = winRows;
 
-        PianoUIText.GetComponent<Text>().text = "TAP " + rowsLeft;
+       
 
         //ScoreKeeper.GameStarted = true; //Uncomment to debug in private scene.
 	}
@@ -53,7 +53,6 @@ public class PianoGame : MonoBehaviour {
     {
         Destroy(rows[currentRow]);
         rowsLeft -= 1;
-        PianoUIText.GetComponent<Text>().text = "TAP " + rowsLeft;
         currentRow += 1;
         rows[currentRow].BroadcastMessage("IsCurrentRow", SendMessageOptions.DontRequireReceiver);
         foreach (GameObject row in rows)
@@ -67,10 +66,8 @@ public class PianoGame : MonoBehaviour {
     {
         
         timer += Time.deltaTime;
-        PianoUIText.SetActive(true);
         if (rowsLeft == 0)
         {
-            PianoUIText.SetActive(false);
             ScoreKeeper.GameWon();
         }
         if (timer >= winTime && rowsLeft != 0)
@@ -80,7 +77,6 @@ public class PianoGame : MonoBehaviour {
     }
     public void GameOver()
     {
-        PianoUIText.SetActive(false);
         ScoreKeeper.GameFailed();
     }
 }
