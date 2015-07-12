@@ -8,6 +8,11 @@ public class Player : MonoBehaviour
     public float winTime;
     public float maxVelocity;
     public float jumpVelocity;
+<<<<<<< HEAD
+=======
+    public int difficutly; //don't leave public in final code
+    public bool debugLevel; //debug option to stop levels from spawning when developing new ones.
+>>>>>>> origin/master
 
     // Use this for initialization
     void Start()
@@ -30,6 +35,30 @@ public class Player : MonoBehaviour
     {
         gameTimer += Time.deltaTime;
         gameObject.GetComponent<Rigidbody2D>().isKinematic = false;
+<<<<<<< HEAD
+=======
+        if (!debugLevel)
+        {
+            switch (difficutly)
+            {
+                case 0:
+                    levels[difficutly].SetActive(true);
+                    winTime = 5f;
+                    break;
+                case 1:
+                    levels[difficutly].SetActive(true);
+                    winTime = 6f;
+                    break;
+                case 2:
+                    levels[difficutly].SetActive(true);
+                    winTime = 8.5f;
+                    break;
+            }
+        }
+
+        
+
+>>>>>>> origin/master
         if (Input.GetMouseButtonDown(0) && !gameFail)
         {
             gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * jumpVelocity);
