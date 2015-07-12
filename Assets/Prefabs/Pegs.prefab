@@ -19,6 +19,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &115426
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 475038}
+  m_Layer: 0
+  m_Name: mousePos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &118608
 GameObject:
   m_ObjectHideFlags: 0
@@ -184,9 +199,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 152828}
-  m_LocalRotation: {x: 0, y: 0, z: .49357149, w: .869705319}
-  m_LocalPosition: {x: -1.98000002, y: -2.16000009, z: 0}
-  m_LocalScale: {x: .414160818, y: 1.5866338, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: .533907473, w: .845542967}
+  m_LocalPosition: {x: -.0649999976, y: -1.54400003, z: 0}
+  m_LocalScale: {x: .414160818, y: 2.67561603, z: 1}
   m_Children: []
   m_Father: {fileID: 408778}
   m_RootOrder: 3
@@ -207,6 +222,7 @@ Transform:
   - {fileID: 458782}
   - {fileID: 499142}
   - {fileID: 452288}
+  - {fileID: 475038}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &413646
@@ -240,11 +256,23 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 114474}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.99000001, y: -3.72000003, z: 0}
+  m_LocalPosition: {x: .680000007, y: -3.72000003, z: 0}
   m_LocalScale: {x: .150000006, y: .150000006, z: 1}
   m_Children: []
   m_Father: {fileID: 408778}
   m_RootOrder: 4
+--- !u!4 &475038
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 115426}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 408778}
+  m_RootOrder: 7
 --- !u!4 &476042
 Transform:
   m_ObjectHideFlags: 1
@@ -432,10 +460,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0962ebef916f82b438388e8f001050e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mousePos: {fileID: 115426}
+  timerText: {fileID: 0}
   pivot: {fileID: 148580}
   turretCannon: {fileID: 139454}
   ball: {fileID: 147104, guid: 6693cb8327d9dc54194e8b8654eec16a, type: 2}
   balls: 1
+  timeuntilLoss: 6
   speed: 5
   minSwipeLength: 5
 --- !u!114 &11493814
@@ -590,6 +621,10 @@ Prefab:
       propertyPath: AppNotificationFlavorText
       value: Hit the green peg!
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: mousePos
+      value: 
+      objectReference: {fileID: 115426}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 150224}
