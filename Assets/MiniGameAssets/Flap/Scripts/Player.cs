@@ -6,11 +6,15 @@ public class Player : MonoBehaviour
     bool gameFail;
     float gameTimer;
     public float winTime;
+    public float maxVelocity;
+    public float jumpVelocity;
+
     // Use this for initialization
     void Start()
     {
         gameTimer = 0f;
         gameFail = false;
+        //ScoreKeeper.GameStarted = true;
     }
 
     // Update is called once per frame
@@ -28,7 +32,13 @@ public class Player : MonoBehaviour
         gameObject.GetComponent<Rigidbody2D>().isKinematic = false;
         if (Input.GetMouseButtonDown(0) && !gameFail)
         {
-            gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 250f);
+            gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * jumpVelocity);
+            
+        }
+        Debug.Log(gameObject.GetComponent<Rigidbody2D>().velocity.y);
+        if (gameObject.GetComponent<Rigidbody2D>().velocity.y >= maxVelocity)
+        {
+            gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(gameObject.GetComponent<Rigidbody2D>().velocity.x, maxVelocity);
         }
 
         if (gameTimer >= winTime)
