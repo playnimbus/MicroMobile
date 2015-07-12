@@ -20,6 +20,8 @@ public class HomeScreenController : MonoBehaviour {
         {
             icon.Value.transform.position += new Vector3(0,10,0);
         }
+
+        print("home screen icons count: " + HomeScreenIcons.Count);
 	}
 
     public void SetCurrentAppIcon(Sprite newSprite)

@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
     public float winTime;
     public float maxVelocity;
     public float jumpVelocity;
-    int difficutly; 
+    public int difficutly; //don't leave public in final code
     public bool debugLevel; //debug option to stop levels from spawning when developing new ones.
 
     public GameObject[] levels;
@@ -18,7 +18,6 @@ public class Player : MonoBehaviour
         gameTimer = 0f;
         gameFail = false;
         //ScoreKeeper.GameStarted = true; 
-        difficutly = ScoreKeeper.getCurrentDiffictuly() - 1; //just to keep parity with the array that's being useds. 
     }
 
     // Update is called once per frame
@@ -27,14 +26,6 @@ public class Player : MonoBehaviour
         if (ScoreKeeper.GameStarted)
         {
             UpdateStartedGame();
-        }
-    }
-
-    void HideAllLevels()
-    {
-        foreach (GameObject level in levels)
-        {
-            level.SetActive(false);
         }
     }
 
@@ -61,12 +52,12 @@ public class Player : MonoBehaviour
             }
         }
 
-        
+
 
         if (Input.GetMouseButtonDown(0) && !gameFail)
         {
             gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * jumpVelocity);
-            
+
         }
         //Debug.Log(gameObject.GetComponent<Rigidbody2D>().velocity.y);
         if (gameObject.GetComponent<Rigidbody2D>().velocity.y >= maxVelocity)
@@ -77,18 +68,14 @@ public class Player : MonoBehaviour
         if (gameTimer >= winTime)
         {
             if (!gameFail)
-            ScoreKeeper.GameWon();
+                ScoreKeeper.GameWon();
             else
             {
                 ScoreKeeper.GameFailed();
             }
         }
     }
-    void OnDestroy()
-    {
-        Debug.Log("Destroy is actually called...");
-        HideAllLevels();
-    }
+
     void OnCollisionEnter2D(Collision2D col)
     {
         if (col.gameObject.tag == "Fail")

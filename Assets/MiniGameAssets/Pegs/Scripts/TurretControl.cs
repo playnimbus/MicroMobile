@@ -3,23 +3,21 @@ using System.Collections;
 
 public class TurretControl : MonoBehaviour {
 
+    public GameObject mousePos;
+
     public GameObject pivot;
     public GameObject turretCannon;
     public GameObject ball;
 
     public int balls = 1;
-
+    public float timeuntilLoss;
+    
     public float speed;
     public float minSwipeLength = 5f;
-
-    private int rotRange;
-
-    private Vector2 firstPressPos;
-    private Vector2 secondPressPos;
-    private Vector2 currentSwipe;
-
-    private Vector2 firstClickPos;
-    private Vector2 secondClickPos;
+    
+    private Vector3 v_diff;
+    private float atan2;
+    private float lossTimer;
 
 	void Update () {
         if (ScoreKeeper.GameStarted)
@@ -30,70 +28,64 @@ public class TurretControl : MonoBehaviour {
 
     void UpdateStartedGame()
     {
-        MobileControl();
+        mousePos.transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
+        MobileControl();
+        LossTimer();
         //temp
         KeyBoardControl();
     }
     void MobileControl()
     {
+        mousePos = GameObject.Find("mousePos");
         if (Input.touches.Length > 0)
         {
             Touch t = Input.GetTouch(0);
 
-            if (t.phase == TouchPhase.Began)
+            if (t.phase == TouchPhase.Moved)
             {
-                firstPressPos = new Vector2(t.position.x, t.position.y);
+
+                v_diff = (mousePos.transform.position - transform.position);
+                atan2 = Mathf.Atan2(v_diff.y, v_diff.x);
+                float angle = Mathf.Atan2(v_diff.y, v_diff.x) * Mathf.Rad2Deg;
+                pivot.transform.rotation = Quaternion.Euler(0f, 0f, atan2 * Mathf.Rad2Deg);
+                pivot.transform.rotation = Quaternion.AngleAxis(angle + 90, Vector3.forward);
             }
 
             if (t.phase == TouchPhase.Ended)
             {
-                secondPressPos = new Vector2(t.position.x, t.position.y);
-                currentSwipe = new Vector3(secondPressPos.x - firstPressPos.x, secondPressPos.y - firstPressPos.y);
-
-                //not a swipe? FIRE THE CANNON!
-                if (currentSwipe.magnitude < minSwipeLength)
-                {
-                    Shoot();
-                    return;
-                }
-
-                //totally a swipe
-                currentSwipe.Normalize();
-
-                //swipes left
-                if (currentSwipe.x < 0 && rotRange <= 3)
-                {
-                    pivot.transform.Rotate(Vector3.forward, -15);
-                    rotRange++;
-                }
-                //swipes right
-                if (currentSwipe.x > 0 && rotRange >= -3)
-                {
-                    pivot.transform.Rotate(Vector3.forward, 15);
-                    rotRange--;
-                }
+                Shoot();
             }
         }
     }
     void KeyBoardControl()
     {
-        //shoot when space down
-        if (Input.GetKeyDown(KeyCode.Space))
+        //track mouseposition
+        if (Input.GetMouseButton(0))
+        {
+            v_diff = (mousePos.transform.position - transform.position);
+            atan2 = Mathf.Atan2(v_diff.y, v_diff.x);
+            float angle = Mathf.Atan2(v_diff.y, v_diff.x) * Mathf.Rad2Deg;
+            pivot.transform.rotation = Quaternion.Euler(0f, 0f, atan2 * Mathf.Rad2Deg);
+            pivot.transform.rotation = Quaternion.AngleAxis(angle + 90, Vector3.forward);
+        }
+
+        //shoot when mouse no longer tracked
+        if (Input.GetMouseButtonUp(0))
         {
             Shoot();
         }
-        //aims left
-        if (Input.GetKeyDown(KeyCode.A) && rotRange <= 1)
+    }
+
+    void LossTimer()
+    {
+        if (!GameObject.Find("ball"))
         {
-            pivot.transform.Rotate(Vector3.forward, -20);
-            rotRange++;
-        }
-        //aims right
-        else if (Input.GetKeyDown(KeyCode.D) && rotRange >= -1)
-        {
-            pivot.transform.Rotate(Vector3.forward, 20);
-            rotRange--;
+            lossTimer += Time.deltaTime;
+            if (lossTimer > timeuntilLoss)
+            {
+                ScoreKeeper.GameFailed();
+            }
         }
     }
 
