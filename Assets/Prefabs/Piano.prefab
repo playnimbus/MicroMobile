@@ -567,7 +567,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &177820
 GameObject:
   m_ObjectHideFlags: 1
@@ -2057,7 +2057,6 @@ MonoBehaviour:
   - {fileID: 166424}
   winTime: 5
   winRows: 5
-  PianoUIText: {fileID: 118378}
 --- !u!114 &11429856
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2356,7 +2355,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AppIcon: {fileID: 21300000, guid: c5494f1ac4e597e4e97724f3a5ecca8a, type: 3}
   AppName: Don't Touch The White Tile
-  AppNotificationFlavorText: Tiles have been placed
+  AppNotificationFlavorText: Tap 5 Black Tiles!
 --- !u!114 &11493082
 MonoBehaviour:
   m_ObjectHideFlags: 1
