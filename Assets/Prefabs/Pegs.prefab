@@ -461,12 +461,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mousePos: {fileID: 115426}
-  timerText: {fileID: 0}
   pivot: {fileID: 148580}
   turretCannon: {fileID: 139454}
   ball: {fileID: 147104, guid: 6693cb8327d9dc54194e8b8654eec16a, type: 2}
   balls: 1
-  timeuntilLoss: 6
+  timeuntilLoss: 5
   speed: 5
   minSwipeLength: 5
 --- !u!114 &11493814
