@@ -22,7 +22,7 @@ public class MenuStates : MonoBehaviour {
 	void Start () {
         MainCamera = Camera.main;
         CurrentScreenState = ScreenStates.MainMenu;
-        
+
         notificationBar = GameObject.Find("notificationBar");
         notification = GameObject.Find("Notification").GetComponent<notificationController>();
         homeScreenController = GameObject.Find("HomeScreenBackground").GetComponent<HomeScreenController>();
@@ -74,7 +74,7 @@ public class MenuStates : MonoBehaviour {
     bool firstGame = true;
     void EnterHomeScreen()
     {
-
+        notification.ResetNotificationPosition();
         if (firstGame == false)
         {
             homeScreenController.LowerNextIcon();
@@ -105,7 +105,6 @@ public class MenuStates : MonoBehaviour {
     void ExitHomeScreen()
     {
         notificationBar.GetComponent<NotificationbarFade>().resetFade();
-        notification.ResetNotificationPosition();
         homescreenAnimationsComplete = false;
     }
 
@@ -119,6 +118,7 @@ public class MenuStates : MonoBehaviour {
     void EnterGameScreen() 
     {
         ScoreKeeper.GameStarted = true;
+        notification.startNotificationSlideUp();
     }
     void UpdateGameScreen() { }
     void ExitGameScreen() 

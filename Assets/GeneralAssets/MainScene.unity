@@ -831,7 +831,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: .0219999999
-  m_StereoMirrorMode: 0
 --- !u!4 &363801325
 Transform:
   m_ObjectHideFlags: 0
@@ -1557,7 +1556,7 @@ Transform:
   m_GameObject: {fileID: 811183599}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 17.0728264, y: 2.67328715, z: 1}
+  m_LocalScale: {x: 17.7900009, y: 2.67328715, z: 1}
   m_Children: []
   m_Father: {fileID: 2080082624}
   m_RootOrder: 2
@@ -2626,6 +2625,7 @@ Transform:
   - {fileID: 1433092441}
   - {fileID: 253372320}
   - {fileID: 305467939}
+  - {fileID: 1592389720}
   m_Father: {fileID: 0}
   m_RootOrder: 4
 --- !u!1 &1501323539
@@ -2682,6 +2682,33 @@ SpriteRenderer:
   m_SortingOrder: -902
   m_Sprite: {fileID: 21300000, guid: b9b93dd5093572e4d852b1017f987bc0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &1592389719
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1592389720}
+  m_Layer: 0
+  m_Name: NotificationMiniGamePosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 4892941663561143343, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1592389720
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1592389719}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5.63000011, y: 4.57000017, z: 4.94999981}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1483729545}
+  m_RootOrder: 6
 --- !u!1 &1703718298
 GameObject:
   m_ObjectHideFlags: 0
@@ -3118,7 +3145,6 @@ MonoBehaviour:
   m_SubmitButton: Submit
   m_CancelButton: Cancel
   m_InputActionsPerSecond: 10
-  m_RepeatDelay: .5
   m_AllowActivationOnMobileDevice: 0
 --- !u!114 &2145894522
 MonoBehaviour:
