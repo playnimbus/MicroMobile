@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     public float maxVelocity;
     public float jumpVelocity;
     public int difficutly; //don't leave public in final code
-    public bool disableDiff; //debug option to stop levels from spawning when developing new ones.
+    public bool debugLevel; //debug option to stop levels from spawning when developing new ones.
 
     public GameObject[] levels;
     // Use this for initialization
@@ -33,7 +33,7 @@ public class Player : MonoBehaviour
     {
         gameTimer += Time.deltaTime;
         gameObject.GetComponent<Rigidbody2D>().isKinematic = false;
-        if (!disableDiff)
+        if (!debugLevel)
         {
             switch (difficutly)
             {
