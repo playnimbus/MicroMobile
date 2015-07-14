@@ -27,24 +27,34 @@ public class HomeScreenController : MonoBehaviour
 
     public void SetCurrentAppIcon(Sprite newSprite)
     {
-        GameObject currentIcon = HomeScreenIcons["HomeScreenAppIcon" + appIndex.ToString()];
-        currentIcon.GetComponent<SpriteRenderer>().sprite = newSprite;
+        if (appIndex <= HomeScreenIcons.Count)   //temp fix so game doesn't lock up when homescreen fills
+        {
+            GameObject currentIcon = HomeScreenIcons["HomeScreenAppIcon" + appIndex.ToString()];
+            currentIcon.GetComponent<SpriteRenderer>().sprite = newSprite;
+        }
     }
 
     public void LowerNextIcon()
     {
-        GameObject currentIcon = HomeScreenIcons["HomeScreenAppIcon" + appIndex.ToString()];
+        if (appIndex <= HomeScreenIcons.Count)   //temp fix so game doesn't lock up when homescreen fills
+        {
+            GameObject currentIcon = HomeScreenIcons["HomeScreenAppIcon" + appIndex.ToString()];
 
-        Hashtable hashtable = new Hashtable();
-        hashtable.Add("y", currentIcon.transform.position.y - 10);
-        hashtable.Add("speed", 10);
-        hashtable.Add("easetype", iTween.EaseType.linear);
-        hashtable.Add("oncompletetarget", gameObject);
-        hashtable.Add("oncomplete", "LowerNextIconComplete");
+            Hashtable hashtable = new Hashtable();
+            hashtable.Add("y", currentIcon.transform.position.y - 10);
+            hashtable.Add("speed", 10);
+            hashtable.Add("easetype", iTween.EaseType.linear);
+            hashtable.Add("oncompletetarget", gameObject);
+            hashtable.Add("oncomplete", "LowerNextIconComplete");
 
-        iTween.MoveTo(currentIcon, hashtable);
+            iTween.MoveTo(currentIcon, hashtable);
 
-        appIndex++;
+            appIndex++;
+        }
+        else
+        {
+            LowerNextIconComplete();
+        }
     }
 
     public void LowerNextIconComplete()
