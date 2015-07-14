@@ -905,7 +905,7 @@ Transform:
   - {fileID: 1302224488}
   - {fileID: 112118592}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
 --- !u!1001 &452128204
 Prefab:
   m_ObjectHideFlags: 0
@@ -2650,11 +2650,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minigames:
-  - {fileID: 150982, guid: 47ea8af4bd42ed74ca90d552366d7c78, type: 2}
   - {fileID: 182772, guid: eec6104eb6f0a234ba673ee86f6f4ff8, type: 2}
   - {fileID: 120796, guid: a7efda042dc7e57488d56aa831fa7bf9, type: 2}
   - {fileID: 150224, guid: 6199e8427b82ebd4e820a91398f8c20d, type: 2}
   - {fileID: 179880, guid: 33e043cb4af7ced42917d30a34b4dffa, type: 2}
+  - {fileID: 150982, guid: 47ea8af4bd42ed74ca90d552366d7c78, type: 2}
   miniGameLocation: {fileID: 137810615}
   CurrentScreenState: 0
   currentMiniGame: {fileID: 0}

@@ -33,6 +33,8 @@ public class Player : MonoBehaviour
     {
         gameTimer += Time.deltaTime;
         gameObject.GetComponent<Rigidbody2D>().isKinematic = false;
+     
+        /*
         if (!debugLevel)
         {
             switch (difficutly)
@@ -51,7 +53,7 @@ public class Player : MonoBehaviour
                     break;
             }
         }
-
+        */
 
 
         if (Input.GetMouseButtonDown(0) && !gameFail)
