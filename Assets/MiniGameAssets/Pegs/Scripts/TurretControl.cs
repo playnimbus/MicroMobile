@@ -79,7 +79,7 @@ public class TurretControl : MonoBehaviour {
 
     void LossTimer()
     {
-        if (!GameObject.Find("ball"))
+        if (!GameObject.Find("ball(Clone)"))
         {
             lossTimer += Time.deltaTime;
             if (lossTimer > timeuntilLoss)
